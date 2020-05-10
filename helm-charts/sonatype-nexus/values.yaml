@@ -47,8 +47,6 @@ nexus:
     path: /
     periodSeconds: 30
   resources: {}
-  securityContext:
-    fsGroup: 2000
   service:
     type: NodePort
 nexusProxyRoute:
@@ -62,10 +60,10 @@ persistence:
 replicaCount: 1
 route:
   annotations: null
-  enabled: false
+  enabled: true
   labels: null
-  name: docker
-  portName: docker
+  name: nexus
+  portName: nexus-service
 secret:
   data: null
   enabled: false
@@ -73,12 +71,12 @@ secret:
   readOnly: true
 service:
   annotations: {}
-  enabled: false
+  enabled: true
   labels: {}
   ports:
   - name: nexus-service
-    port: 80
-    targetPort: 80
+    port: 8081
+    targetPort: 8081
 statefulset:
   enabled: false
 tolerations: []

@@ -9,9 +9,9 @@ metadata:
     {{ $key }}: {{ $value | quote }}
     {{- end }}
 spec:
-  host: {{ .Values.route.path }}
+  host: null
   port:
-    targetPort: {{ .Values.service.portName }}
+    targetPort: {{ .Values.route.portName }}
   tls:
     insecureEdgeTerminationPolicy: Redirect
     termination: edge
